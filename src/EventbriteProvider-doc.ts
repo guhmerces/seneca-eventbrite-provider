@@ -13,8 +13,15 @@ const event_docs = {
 
 }
 
+const format_docs = {
+  load_format: {
+    desc: 'Load an Eventbrite Format data into an entity.',
+  },
+}
+
 const docs = {
   ...event_docs,
+  ...format_docs,
 }
 
 export default docs
