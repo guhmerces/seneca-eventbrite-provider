@@ -13,8 +13,21 @@ const event_docs = {
 
 }
 
+const discount_docs = {
+
+  load_discount: {
+    desc: 'Load an Eventbrite Discount data into an entity.',
+  },
+
+  save_discount: {
+    desc: 'Update an Eventbrite Discount data from an entity.',
+  },
+
+}
+
 const docs = {
   ...event_docs,
+  ...discount_docs,
 }
 
 export default docs
