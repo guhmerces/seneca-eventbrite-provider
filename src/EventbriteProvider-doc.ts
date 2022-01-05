@@ -13,8 +13,21 @@ const event_docs = {
 
 }
 
+const inventory_tier_docs = {
+
+  load_inventory_tier: {
+    desc: 'Load an Eventbrite Inventory Tier data into an entity.',
+  },
+
+  save_inventory_tier: {
+    desc: 'Update an Eventbrite Inventory Tier data from an entity.',
+  },
+
+}
+
 const docs = {
   ...event_docs,
+  ...inventory_tier_docs,
 }
 
 export default docs
