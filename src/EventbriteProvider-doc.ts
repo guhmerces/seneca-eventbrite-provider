@@ -13,8 +13,23 @@ const event_docs = {
 
 }
 
+const media_docs = {
+  load_media: {
+    desc: 'Load an Eventbrite Media data into an entity.'
+  },
+
+  save_media: {
+    desc: 'Update an Eventbrite Media data from an entity.'
+  },
+
+  load_media_upload: {
+    desc: 'Load an Eventbrite Media Upload data into an entity.'
+  }  
+}
+
 const docs = {
   ...event_docs,
+  ...media_docs,
 }
 
 export default docs
