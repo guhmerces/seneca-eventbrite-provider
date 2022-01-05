@@ -13,8 +13,19 @@ const event_docs = {
 
 }
 
+const display_settings_docs = {
+  load_display_settings: {
+    desc: 'Load an Eventbrite Display Settings data into an entity.',
+  },
+
+  save_display_settings: {
+    desc: 'Update an Eventbrite Display Settings data from an entity.',
+  },
+}
+
 const docs = {
   ...event_docs,
+  ...display_settings_docs,
 }
 
 export default docs
