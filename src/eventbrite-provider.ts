@@ -27,6 +27,9 @@ function EventbriteProvider(this: any, options: any) {
 
     .message('role:entity,cmd:load,zone:provider,base:eventbrite,name:category', commands.category.load_category)
 
+    .message('role:entity,cmd:load,zone:provider,base:eventbrite,name:discount', commands.discount.load_discount)
+    .message('role:entity,cmd:save,zone:provider,base:eventbrite,name:discount', commands.discount.save_discount)
+
   seneca.prepare(async function(this: any) {
     let out = await this.post('sys:provider,get:key,provider:eventbrite,key:api')
     if (out.ok) {
