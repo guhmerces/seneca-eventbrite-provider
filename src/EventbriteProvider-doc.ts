@@ -1,7 +1,7 @@
 /* Copyright © 2021 Seneca Project Contributors, MIT License. */
 
 
-const docs = {
+const event_docs = {
 
   loadEvent: {
     desc: 'Load an Eventbrite event data into an entity.',
@@ -11,6 +11,10 @@ const docs = {
     desc: 'Update an Eventbrite event data from an entity.',
   },
 
+}
+
+const docs = {
+  ...event_docs,
 }
 
 export default docs
