@@ -34,7 +34,35 @@ function make_actions(action_data: ActionData) {
   } 
 
   async function save(this:any, msg:any) {
+    const { q, ent } = msg
 
+    const context: Context = {
+      query: q,
+      inent: ent
+    }
+
+    if(before) {
+      perform_tasks(before, context)
+    }
+
+    const built_path = build_path(path, ent)
+
+    const body = recursively_fill(
+      ent,
+      action_data.request.body_spec || {}
+    )
+
+    const res =  await req_fn(built_path)
+
+    const outent = this.make$(msg.ent.entity$).data$(res)
+
+    if(after) {
+      perform_tasks(after, {
+        res,
+        outent,
+        ...context
+      })
+    }
   }
 
   function build_path(path: string, args: Record<string, any>) {
