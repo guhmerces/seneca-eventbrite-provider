@@ -1,4 +1,24 @@
+import Ajv, { JSONSchemaType } from "ajv"
 import { Context, Task, TasksTypesFn } from "./types"
+
+function validate(specs: Record<string,any>, data: Record<string,any>): boolean {
+  const schema: JSONSchemaType<Record<string,any>> = {
+    type: 'object',
+  }
+
+  let props: Record<string, any> = {}
+
+  for(const [entry, rules] of Object.entries(specs)) {
+    props[entry] = {
+      type: rules
+    }
+  }
+
+  schema.properties = props  
+  const validate = (new Ajv).compile(schema)
+
+  return validate(data)
+}
 
 function perform_tasks(tasks: Task[], context: Context ) {
   tasks.forEach(task => {
@@ -42,7 +62,7 @@ const tasksTypes: TasksTypesFn = {
   set
 }
 
-export { perform_tasks };
+export { perform_tasks, validate }
 
 export type {
   Task
