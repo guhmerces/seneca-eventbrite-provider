@@ -50,6 +50,22 @@ function make_actions(action_data: ActionData) {
     return path
   }
 
+  function recursively_fill(from: Record<string, any>, to: Record<string, any>) {
+    let body: Record<string, any> = {}
+
+    for(const [entry, value] of Object.entries(to)) {
+
+      if(typeof value === 'object') {
+        body[entry] = recursively_fill(value, from[entry])
+        continue
+      }
+
+      body[entry] = from[entry]
+    }
+
+    return body
+  }
+
   return {
     load,
     save
